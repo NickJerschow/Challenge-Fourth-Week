@@ -1,0 +1,68 @@
+/* Global settings*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+body {
+    background-color: white;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+button {
+    color: blueviolet;
+    font-size: 1.3em;
+}
+
+/*seeting the whole page to a flex box*/
+.outer-container {
+    padding: 10px;
+    height: 100vh; /* making the outer container take up the whole view height */
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+ .top-bar {
+    margin-top: 2%;
+ }
+
+.top-bar p {
+   float: right; /* making the timer float to the top right */
+   margin-right: 2%;
+}
+
+.top-bar button {
+    margin-left: 2%;
+}
+
+.inner-container {
+    height: 100%;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quiz-intro {
+    margin: 25vh;
+}
+
+.quiz-intro button {
+    display: block;
+    margin: 0 auto;
+
+}
