@@ -15,10 +15,14 @@ p {
     font-size: 1.3em;
 }
 
-h1 {
+h1, h2 {
     font-size: 1.5em;
     font-weight: bolder;
     text-align: center;
+}
+
+li {
+    list-style: none;
 }
 
 button {
@@ -57,12 +61,32 @@ button {
     justify-content: center;
 }
 
-.quiz-intro {
+.quiz-intro, main {
     margin: 25vh;
 }
 
 .quiz-intro button {
     display: block;
     margin: 0 auto;
+}
+
+ /*setting the main question area to not display initially*/
+main {
+    display: none;
+}
+
+.question-box {
+    display: none;
+}
+
+.quiz-end-box {
+    display: none;
+}
+
+.high-scores-screen {
+    display: none;
+}
+
+.high-scores-screen ol {
 
 }
