@@ -10,29 +10,33 @@
     <div class="outer-conatiner">
 
         <div class="top-bar">
-            <button id="scores link">View High Scores</button>
+            <button id="highscores-button">View High Scores</button>
             <p id="timer">Timer 00:00</p>
         </div>
 
         <div class="inner-container">
             <header class="quiz-intro"> 
                 <h1>Coding Quiz Challenge</h1>
-                <p>To start the quiz hit the start quiz button. You will have 60 seconds to answer all the questions. Incorrect answers will deduct from the time bank.</p>
-                <button>Start Quiz</button>
+                <p>To start the quiz hit the start quiz button. You will have 60 seconds to answer all the questions. Incorrect answers will deduct from the time bank.
+                    Your final score will be the time left when you have completed the quiz.
+                </p>
+                <button id="start-button">Start Quiz</button>
             </header>    
 
             <main >
-                <section class="question-box">
+                <section class="question-box" id="quiz">
                     <h2>Question</h2>
-                    <ul>
-                        <li button>Answer 1</li>
-                        <li button>Answer 2</li>
-                        <li button>Answer 3</li>
-                        <li button>Answer 4</li>
-                    </ul>
+                    <div id="questions">
+                        <ul>
+                            <li button id="a-button">Answer 1</li>
+                            <li button id="b-button">Answer 2</li>
+                            <li button id="c-button">Answer 3</li>
+                            <li button id="d-button">Answer 4</li>
+                         </ul>
+                        </div>     
                 </section>        
 
-                <section class="quiz-end-box">
+                <section class="quiz-end-box" id="quiz-end">
                     <h2>Quiz Over!</h2>
                     <p>Your Score is 00</p>  
                     <div>
@@ -42,7 +46,7 @@
                     </div>
                 </section>
 
-                <section class="high-scores-screen">
+                <section class="high-scores-screen" id="high-scores-screen">
                     <h2>High Scores</h2>
                     <ol>
                         <li>Initials - Score</li>
