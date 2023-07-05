@@ -6,11 +6,16 @@ var bButton = document.getElementById("b-button");
 var cButton = document.getElementById("c-button");
 var dButton = document.getElementById("d-button");
 var quizTimer = document.getElementById("timer");
-var startQuiz = document.getElementById("quiz");
+var startQuizDiv = document.getElementById("quiz");
 var gameOverDiv = document.getElementById("quiz-end");
 var highscoresScreen = document.getElementById("high-scores-screen");
 var questionsEl = document.getElementById("questions");
-
+var currentQuestionIndex = 0;
+var finalQuestionIndex = quizQuestions.length;
+var timeLeft = 60;
+var timerInterval;
+var score = 0;
+var correct;
 
 // Questions object saved as an array
 var quizQuestions = [{
@@ -42,11 +47,11 @@ var quizQuestions = [{
   choiceD: "Button",
   correctAnswer: "d"},
   {
-  question: "When is localStorage data cleared?",
-  choiceA: "No expiration time",
-  choiceB: "On page reload",
-  choiceC: "On browser close",
-  choiceD: "On computer restart",
+  question: "CSS stands for ____ Style Sheets.",
+  choiceA: "Cascading",
+  choiceB: "Concept",
+  choiceC: "Curious",
+  choiceD: "Concave",
   correctAnswer: "a"},  
   {
   question: "What is a JavaScript element that represents either TRUE or FALSE values?",
@@ -66,7 +71,7 @@ var quizQuestions = [{
 
 // This function cycles through the object array containing the quiz questions to generate the questions and answers.
 function generateQuizQuestion(){
-  gameoverDiv.style.display = "none";
+  gameOverDiv.style.display = "none";
   if (currentQuestionIndex === finalQuestionIndex){
       return showScore();
   } 
@@ -103,8 +108,38 @@ function showScore(){
   gameoverDiv.style.display = "flex";
   clearInterval(timerInterval);
   highscoreInputName.value = "";
-  finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+  finalScoreEl.innerHTML = "Your score is " + timeLeft;
 };
 
+// This function displays the high scores page while hiding all of the other pages from 
+function showHighscore(){
+  startQuizDiv.style.display = "none"
+  gameOverDiv.style.display = "none";
+  highscoreContainer.style.display = "flex";
+  highscoreDiv.style.display = "block";
+  endGameBtns.style.display = "flex";
+
+  generateHighscores();
+};
+
+// This function checks the response to each answer 
+function checkAnswer(answer){
+  correct = quizQuestions[currentQuestionIndex].correctAnswer;
+
+  if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
+      score++;
+      alert("That Is Correct!");
+      currentQuestionIndex++;
+      generateQuizQuestion();
+      //display in the results div that the answer is correct.
+  }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
+      alert("That Is Incorrect.")
+      currentQuestionIndex++;
+      generateQuizQuestion();
+      //display in the results div that the answer is wrong.
+  }else{
+      showScore();
+  };
+}  
 // Event listener to start the quiz
-startQuizButton.addEventListener("click",startQuiz);
+startQuizButton.addEventListener("click", startQuiz);
